@@ -1,0 +1,47 @@
+<?php 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+?>
+
+<html>
+	<head>
+<?php if ( !$forEmail ) { ?>
+<title>Shopping Cart</title>
+	<?php } ?>
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" href="../css/site.css">
+	</head>	
+<body>
+<h1>myMovies Xpress!</h1>
+<?php if ( !$forEmail ) { ?>
+	<strong style='color:blue;'>Welcome, <?= $_SESSION['displayName'] ?> <a onclick='confirmLogout()'>(logout)</a></strong><br />
+	<?php } ?>
+
+<?php if ($num_movies !== 0) { ?>
+	<p style='color:blue;'><?= $num_movies ?> movies in your shopping cart.</p><br>
+	<?php } 
+elseif ($num_movies === 0) { ?>
+	<p style='color:red;'>Add some movies to your cart</p><br />
+<?php 	} ?>
+<br>
+<label for='select_order'>Arrange movie order:</label>
+<select id='select_order' onchange='changeMovieDisplay()'>
+		<option value="0">Movie Title</option>
+		<option value="1">Runtime (shortest -> longest)</option>
+		<option value="2">Runtime (longest -> shortest)</option>
+		<option value="3">Year (old -> new)</option>
+		<option value="4">Year (new -> old)</option>
+</select><br />
+<br />
+<div id='shopping_cart'><?= $array ?></div>
+<br />
+<?php if ( !$forEmail ) { ?>
+	<input type='button' value='Add Movie' onClick="location.href = './search.php';">
+	<input type='button' value='Checkout' onClick='confirmCheckout()'>	
+<div id='modalWindow' class='modal'>
+	<div id='modalWindowContent' class='modal-content'>
+	</div>
+</div>
+<?php } ?>
+</body>
+</html>

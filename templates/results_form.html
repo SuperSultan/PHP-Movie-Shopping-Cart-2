@@ -1,0 +1,33 @@
+ 
+<html>
+	<head>	
+		<title>Search Results</title>
+ 		<script type="text/javascript" src="script.js"></script>	
+	</head>
+<body>
+<strong style="color:blue;">Welcome <?= $_SESSION['displayName']; ?> <a onclick="confirmLogout()">(logout)</a></strong>
+<h1>myMovies Xpress!</h1>
+<p><?= count($array) ?> Movies Found</p>
+<?php if (count(array_filter($array)) !== 0) { ?>
+<table>
+	<tr>
+		<th><strong>Poster</strong></th>
+		<th><strong>Title(year)</strong></th>
+		<th><strong>Add</strong></th>
+	</tr>
+	<?php foreach($array as $movie) { ?>
+	<tr>		
+		<td><img src="<?= $movie["Poster"] ?>" height="100"></td>
+		<td><a href="https://www.imdb.com/title/<?= $movie["imdbID"]; ?>" target="_blank"><?= $movie["Title"]; ?><?= " " ?><?= "(" ?><?= ($movie['Year']) ?><?= ")" ?></a></td>
+		<td><a href="javascript:addMovie('<?= $movie['imdbID'] ?>');" onclick="addMovie('<?=$movie['imdbID'] ?>');">+</a></td>	
+	</tr>
+	<?php } ?>
+</table>
+
+<?php } ?>
+	<br>
+	<button onClick="javascript:window.location.href='./index.php'">Cancel</button>
+	<br>
+</body>
+</html>
+

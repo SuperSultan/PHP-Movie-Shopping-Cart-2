@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Login Form Display</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>	
+<body>
+	<h1>myMovies Xpress!</h1>
+	<p>Enter your username</p>
+	<form id="forgot" action="./logon.php" method="post">
+		Username: <input type="text" name="username" required><br />
+		<br />	
+
+		<button name="Cancel" onClick="javascript:confirmCancel(forgot);">Cancel</button>
+		<button type="reset" value="Reset">Clear</button>
+		<button name="OK" value="Submit">OK</button>
+		<input type="hidden" name="action" value="forgot">
+	</form>
+</body>
+</html>

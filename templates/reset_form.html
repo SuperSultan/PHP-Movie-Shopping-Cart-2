@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Reset Form Page</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<h1>myMovies Xpress!</h1>
+	<form id="forgot" action="./logon.php" onsubmit="return validateResetPasswordForm();" method="post">
+	<p>New Password:</p><input type="password" name="password" id="password" required><br />
+	<p>Confirm Password:</p><input type="password" name="password2" id="password2" required><br />
+	<br />
+	<input type="button" onClick="confirmCancel(forgot);" value="Cancel">
+	<input type="reset" value="Clear">
+	<input type="submit" value="Reset Password">
+	<input type="hidden" name="action" value="reset">
+	<input type="hidden" name="user_id" value="<?= $userId ?>">
+</body>
+</html>

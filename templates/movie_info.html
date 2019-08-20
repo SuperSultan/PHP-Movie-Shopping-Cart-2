@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Movie Info</title>
+	<link rel="stylesheet" src="site.css">
+</head>
+<body>
+<div class='modal-header'>
+    <span class='close'>[Close]</span>
+<?php if ( getMovieData($movieId) )
+	echo "<h2>" . $array['Title'] . "(" . $array['Year'] . ") Rated" . $array['Rating'] . $array['Runtime'] . "<br />" . $array['Genre'] . "</h2>";
+else echo "<h2>Title (Year) Rated Rating Runtime<br />Genre</h2>"; ?>
+</div>
+<div class='modal-body'>
+<?php if ( getMovieData($movieId) ) 
+	echo "<p>Actors: " . $array['Actors'] . "<br />Directed By: " . $array['Director'] . "<br />Written By: " . $array['Writer'] . "</p>";
+else echo "<p>Actors: Actors<br />Directed By: Director<br />Written By: Writer</p>";
+			?>
+</div>
+<div class='modal-footer'>
+	<?php if ( !getMovieData($movieId) )
+	echo "Invalid Movie ID!";
+	else echo "<p>Plot</p>"; ?>
+</div>
+
+
+</body>
+
+
+</html>
+

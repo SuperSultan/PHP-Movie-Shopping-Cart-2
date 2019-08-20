@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Movie List</title>
+	</head>
+<body>
+<table cellpadding='2' cellspacing='0'>
+<?php foreach($array as $movieID) {
+	$movies = getMovieData($movieID);
+	$ID = $movies['ID'];
+	$IMDB_ID = $movies['IMDB_ID'];
+        $title = $movies['Title'];
+?>
+<tr>
+	<th><img src="<?= $movies['Poster'] ?>" height='100'</th>
+	<th><a href="https://www.imdb.com/title/<?= $IMDB_ID ?>" target="_blank"><?= $movies['Title'] ?><?= " " ?><?= "(" ?><?= $movies['Year'] ?><?= ")" ?></a></td>
+<?php if ( !$forEmail ) { ?>
+	<th><a href="javascript:void(0);" onclick="displayMovieInformation('<?= $ID ?>');">View More Info</a></th>	
+	<th><a href="javascript:void(0);" onclick="confirmRemove('<?= $title ?>','<?= $ID ?>');">X</a></th>
+	<?php } ?>
+<?php } ?>
+</tr>		
+</table>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+d>
+	<title>Create Form Page</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<h1>myMovies Xpress!</h1>
+<p>Enter your display name, email, and username. Then enter your password.</p>
+<form id="create" action="./logon.php" onsubmit="return validateCreateAccountForm();" method="post">
+	Display Name: <input type="text" name="displayName" id="displayName" required><br />
+	Email Address: <input type="text" name="emailAddress" id="emailAddress"  required><br />
+	Confirm Email Address: <input type="text" name="emailAddress2" id="emailAddress2" required><br />
+	Username: <input type="text" name="username" id="username" required><br />
+<br />
+	Password: <input type="password" name="password" id="password" required><br />
+	Confirm Password: <input type="password" name="password2" id="password2" required><br />
+<br />
+<button name="Cancel" onClick="javascript:confirmCancel(create);">Cancel</button>
+<button type="reset" value="Reset">Clear</button>
+<button name="submit" value="Submit">Submit</button>
+<input type="hidden" name="action" value="create">
+</body>
+</form>
+</html>
